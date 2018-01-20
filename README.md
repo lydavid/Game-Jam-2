@@ -6,3 +6,6 @@ Potential ideas for game:
 - using eye tracking (blinks) to warp to designated location
 - kind of like superhot / tracer blink from overwatch
 - 
+
+# Discord
+https://discord.gg/bfMVcM
