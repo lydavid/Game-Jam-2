@@ -26,7 +26,7 @@ public class Warp : MonoBehaviour {
         {
             //GetComponent<Rigidbody>().velocity = ;
             //GetComponent<Rigidbody>().velocity += this.transform.forward * warpVelocity;
-            Vector3 forward = transform.TransformDirection(Vector3.forward) * 10;
+            //Vector3 forward = transform.TransformDirection(Vector3.forward) * 10;
             //Debug.DrawRay(transform.position, forward, Color.green);
 
             /*if (Physics.Raycast(transform.position, forward, 10))
@@ -39,7 +39,8 @@ public class Warp : MonoBehaviour {
             Ray ray = Camera.main.ScreenPointToRay(Input.mousePosition);
             if (Physics.Raycast(ray, out hit))
             {
-                this.transform.position = hit.transform.position;
+                var hitPos = hit.transform.position;
+                this.transform.position = new Vector3(hitPos.x - 1, hitPos.y, hitPos.z - 1);
             }
         }
 
@@ -57,8 +58,4 @@ public class Warp : MonoBehaviour {
 
     }
 
-    /*void FixedUpdate()
-    {
-        
-    }*/
 }
