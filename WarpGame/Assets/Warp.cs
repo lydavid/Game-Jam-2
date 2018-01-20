@@ -27,14 +27,23 @@ public class Warp : MonoBehaviour {
             //GetComponent<Rigidbody>().velocity = ;
             //GetComponent<Rigidbody>().velocity += this.transform.forward * warpVelocity;
             Vector3 forward = transform.TransformDirection(Vector3.forward) * 10;
-            Debug.DrawRay(transform.position, forward, Color.green);
+            //Debug.DrawRay(transform.position, forward, Color.green);
 
-            if (Physics.Raycast(transform.position, forward, 10))
+            /*if (Physics.Raycast(transform.position, forward, 10))
             {
-                GetComponent<Rigidbody>().transform.position += this.transform.forward * warpVelocity;
-                print("There is something in front of the object!");
+                GetComponent<Rigidbody>().velocity += this.transform.forward * warpVelocity;
+                Debug.Log("There is something in front of the object!");
+            }*/
+
+            RaycastHit hit;
+            Ray ray = Camera.main.ScreenPointToRay(Input.mousePosition);
+            if (Physics.Raycast(ray, out hit))
+            {
+                this.transform.position = hit.transform.position;
             }
         }
+
+
         /*if (Input.GetButton("Fire1"))
         {
             Vector3 fwd = transform.TransformDirection(Vector3.forward);
